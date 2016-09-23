@@ -114,7 +114,8 @@ class InstitutionList:
 class Institution:
     def __init__(self,xml):
 
-        dom = parseString(xml)
+        # Had to fix this manually, unfortunately
+        dom = parseString(xml.replace('BB&T','BB&ampT'))
         root = dom.documentElement
 
         self.id = _attr(root,'id')
